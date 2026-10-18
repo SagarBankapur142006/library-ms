@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira Agile Project Management Report - LMS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .print-card { border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+      .print-page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen pb-12">
+
+  <!-- Header Banner (no-print) -->
+  <header class="bg-indigo-900 text-white py-8 px-6 shadow-lg mb-8 no-print">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight">Jira Agile Project Management Report</h1>
+        <p class="text-indigo-200 mt-1">DA1 Submission for Library Management System</p>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow transition-all flex items-center gap-2">
+          <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print to PDF / Save PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6">
+    <article class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 md:p-12 space-y-12 print-card">
+      
+      <!-- Report Header / Cover Details -->
+      <section class="border-b border-slate-100 pb-8 text-center md:text-left">
+        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">BCSE301L Assignment</span>
+        <h1 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4 leading-tight">Library Management System</h1>
+        <h2 class="text-xl text-slate-500 font-medium italic">Agile Project Management using Jira</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100 text-sm text-slate-600">
+          <div>
+            <p><strong class="text-slate-800">Student Name:</strong> Sagar Bankapur</p>
+            <p><strong class="text-slate-800">Email:</strong> sagar.sbankapur2024@vitstudent.ac.in</p>
+            <p><strong class="text-slate-800">Project Key:</strong> SCRUM / LMS</p>
+          </div>
+          <div>
+            <p><strong class="text-slate-800">Jira Site:</strong> <a href="https://vitstudent-team-r6bfp56o.atlassian.net" class="text-indigo-600 hover:underline">vitstudent-team-r6bfp56o.atlassian.net</a></p>
+            <p><strong class="text-slate-800">Jira Board URL:</strong> <a href="https://vitstudent-team-r6bfp56o.atlassian.net/jira/software/projects/SCRUM/boards/1" class="text-indigo-600 hover:underline">boards/1</a></p>
+            <p><strong class="text-slate-800">Submission Date:</strong> August 1, 2026</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. Executive Summary -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">1. Executive Summary & Objectives</h3>
+        <p class="text-slate-600 leading-relaxed">
+          This comprehensive project documentation details the engineering and management processes 
+          implemented to design, build, and deploy a responsive Library Management System (LMS) web application. 
+          Managing software lifecycles in academic environments requires structured Agile methodologies. To achieve 
+          this, we implemented the Scrum framework inside Jira to organize requirement files, create backlog structures, 
+          estimate work complexity, and monitor daily tasks.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          All software components of the Library Management System are fully functioning. The application features a React, 
+          TypeScript, and Vite frontend architecture, simulating transactional persistence via web LocalStorage. Key capabilities 
+          include Role-Based Access Control (RBAC), multi-criteria catalog search, inventory catalog management, circulation rules, 
+          fines calculations, and book reservations queues.
+        </p>
+        <div class="bg-indigo-50/50 rounded-xl p-6 border border-indigo-100 mt-4">
+          <strong class="text-indigo-900 block mb-2">Key System Objectives Covered in Development:</strong>
+          <ul class="list-disc list-inside space-y-1.5 text-sm text-indigo-950">
+            <li>Jira Project Setup: Configuring a Scrum Board and defining an 8-Epic WBS.</li>
+            <li>System Analysis: Drafting formal SRS specifications and creating Use Case and Activity Diagrams.</li>
+            <li>Database Architecture: Normalizing transactional data to 3NF and defining a relational ERD.</li>
+            <li>Role-Based Authentication: Implementing secure routing limits for Admins, Librarians, and Students.</li>
+            <li>Book & Member Inventory: Building forms for item CRUD configurations and registration logs.</li>
+            <li>Circulation Engine: Writing state management routines for checkouts, returns, and daily fine accruals ($1.00/day).</li>
+            <li>Borrowing Policies: Creating configurators to adapt limits (max loan count, checkout days, fine rates).</li>
+            <li>Reservation Queue: Setting up automated waitlists for out-of-stock items, allocating copies upon return.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 2. Jira Configuration -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">2. Jira Scrum Configuration & Backlog Setup</h3>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="p-4">Jira Configuration Parameter</th>
+                <th class="p-4">Workspace Value</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-4 font-medium text-slate-800">Account Owner Name</td>
+                <td class="p-4">Sagar Bankapur</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-slate-800">Primary Registered Email</td>
+                <td class="p-4">sagar.sbankapur2024@vitstudent.ac.in</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-slate-800">Jira Cloud Base URL</td>
+                <td class="p-4"><a href="https://vitstudent-team-r6bfp56o.atlassian.net" class="text-indigo-600 hover:underline">https://vitstudent-team-r6bfp56o.atlassian.net</a></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-slate-800">Active Project & Key</td>
+                <td class="p-4">Library Management System (SCRUM / LMS)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-lg font-bold text-slate-800 mt-6 mb-2">Project Sprint Schedule</h4>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="p-4">Sprint Identifier</th>
+                <th class="p-4">Dates</th>
+                <th class="p-4">Story Points</th>
+                <th class="p-4">Core Goals & Scope</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-4 font-semibold text-slate-800">Sprint 1: Foundations</td>
+                <td class="p-4">June 15 - July 15, 2026</td>
+                <td class="p-4 font-mono">15 SP</td>
+                <td class="p-4">SRS requirements definition, WBS setup, database normalization design, ERD modeling, and repository bootstrapping.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-800">Sprint 2: Identity & CRUD UI</td>
+                <td class="p-4">July 16 - August 12, 2026</td>
+                <td class="p-4 font-mono">25 SP</td>
+                <td class="p-4">AuthContext session portal, RBAC routing guards, member registers, and book inventory CRUD forms.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-800">Sprint 3: Transactions & Core</td>
+                <td class="p-4">August 13 - August 30, 2026</td>
+                <td class="p-4 font-mono">20 SP</td>
+                <td class="p-4">Checkout/Return transactions logging, fine computation engines, policies dashboard, book reservations queues, and production builds.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. System Requirements -->
+      <section class="space-y-4 print-page-break">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">3. System Requirements & User Stories</h3>
+        
+        <div class="space-y-4">
+          <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/50">
+            <h4 class="font-bold text-slate-900 text-base">LMS-AUTH-01: Identity Validation Portal (3 SP)</h4>
+            <p class="text-slate-500 text-xs mt-1">Epic Reference: LMS-AUTH</p>
+            <p class="text-slate-600 italic mt-2">"As a registered user, I want to securely log in so that I can open my personal dashboard view."</p>
+            <strong class="text-xs text-slate-700 block mt-3">Acceptance Criteria:</strong>
+            <ul class="list-disc list-inside text-xs text-slate-600 pl-2 space-y-1 mt-1">
+              <li>Checks formatting rules on inputs.</li>
+              <li>Redirects to specific view dashboards based on user role (Admin, Librarian, Student).</li>
+              <li>AuthContext handles global authentication state.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/50">
+            <h4 class="font-bold text-slate-900 text-base">LMS-BOOK-01: Inventory CRUD Controls (5 SP)</h4>
+            <p class="text-slate-500 text-xs mt-1">Epic Reference: LMS-BOOK</p>
+            <p class="text-slate-600 italic mt-2">"As a librarian, I want to add, edit, and archive book records to keep the inventory catalog accurate."</p>
+            <strong class="text-xs text-slate-700 block mt-3">Acceptance Criteria:</strong>
+            <ul class="list-disc list-inside text-xs text-slate-600 pl-2 space-y-1 mt-1">
+              <li>ISBN unique constraint validations.</li>
+              <li>Controls block deletion of books currently checked out.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/50">
+            <h4 class="font-bold text-slate-900 text-base">LMS-TX-01: Circulation Checkout Engine (5 SP)</h4>
+            <p class="text-slate-500 text-xs mt-1">Epic Reference: LMS-TX</p>
+            <p class="text-slate-600 italic mt-2">"As a librarian, I want to check out books to active members so that physical copy tracking remains updated."</p>
+            <strong class="text-xs text-slate-700 block mt-3">Acceptance Criteria:</strong>
+            <ul class="list-disc list-inside text-xs text-slate-600 pl-2 space-y-1 mt-1">
+              <li>Decrements available copies count on checkout.</li>
+              <li>Blocks checkout if member is inactive or has exceeded the 5-book limit.</li>
+              <li>Automatically sets 14-day return due date.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/50">
+            <h4 class="font-bold text-slate-900 text-base">LMS-ADV-02: Reservation Queue Waitlists (5 SP)</h4>
+            <p class="text-slate-500 text-xs mt-1">Epic Reference: LMS-ADV</p>
+            <p class="text-slate-600 italic mt-2">"As a student, I want to reserve a book that is currently out of stock so that I am added to the waitlist."</p>
+            <strong class="text-xs text-slate-700 block mt-3">Acceptance Criteria:</strong>
+            <ul class="list-disc list-inside text-xs text-slate-600 pl-2 space-y-1 mt-1">
+              <li>Adds student to the book's reservation list on click.</li>
+              <li>Auto-allocates copy to next reservation in queue when book is returned.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. System Design & Architecture -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">4. Technical System Design & Database Schema</h3>
+        <p class="text-slate-600 leading-relaxed">
+          The Library Management System is built on a modern single-page application architecture. 
+          The frontend uses React and TypeScript, bootstrapped with Vite. 
+          Global application states are managed using React Context Providers (AuthContext and LibraryContext).
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          For the storage layer, the application implements a simulation library in storage.ts. 
+          This module reads/writes JSON datasets directly from window.localStorage, simulating transactional SQL 
+          operations like unique checks, table joins, and updates. This ensures stable persistence across page reloads.
+        </p>
+        <h4 class="text-lg font-bold text-slate-800 mt-6 mb-2">Database Normalization (3NF) & Schemas</h4>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="p-4">Database Table</th>
+                <th class="p-4">Primary Keys & Constraints</th>
+                <th class="p-4">Attributes List</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-4 font-bold text-slate-800">users</td>
+                <td class="p-4 font-mono text-indigo-600 text-xs">id (PK, Auto-Inc)</td>
+                <td class="p-4">email (Unique), password_hash, full_name, role (Admin/Librarian/Student), created_at</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-800">books</td>
+                <td class="p-4 font-mono text-indigo-600 text-xs">id (PK, Auto-Inc)</td>
+                <td class="p-4">title, author, isbn (Unique), genre, total_copies, available_copies</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-800">transactions</td>
+                <td class="p-4 font-mono text-indigo-600 text-xs">id (PK, Auto-Inc)</td>
+                <td class="p-4">book_id (FK), member_id (FK), issued_by_user_id (FK), issue_date, due_date, return_date (Nullable), status</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-800">fines</td>
+                <td class="p-4 font-mono text-indigo-600 text-xs">id (PK, Auto-Inc)</td>
+                <td class="p-4">transaction_id (FK), fine_amount, payment_status (Paid/Unpaid), paid_date</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-slate-800">reservations</td>
+                <td class="p-4 font-mono text-indigo-600 text-xs">id (PK, Auto-Inc)</td>
+                <td class="p-4">book_id (FK), member_id (FK), reserved_at, status (Pending/Fulfilled/Cancelled)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5. Features Implementation -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">5. Implementation Details of Key Features</h3>
+        <ul class="space-y-4 text-slate-600 text-sm">
+          <li>
+            <strong class="text-slate-800 text-base block mb-1">5.1 Authentication and Role-Based Guards</strong>
+            Authentication uses standard forms mapping inputs against storage.ts records. Upon validation, the system 
+            saves the session details. Routes check permissions before rendering dashboard modules, ensuring 
+            RBAC limit enforcement.
+          </li>
+          <li>
+            <strong class="text-slate-800 text-base block mb-1">5.2 Book Inventory Management</strong>
+            The book page enables Librarians to execute full CRUD operations. Input validations run automatically 
+            to prevent duplicates of ISBN values, check number bounds on copy allocations, and block deletions of 
+            books that are actively checked out.
+          </li>
+          <li>
+            <strong class="text-slate-800 text-base block mb-1">5.3 Circulation Rules & Overdue Calculations</strong>
+            The checkout transaction verifies that a member exists, is active, and does not exceed the limit of 
+            five books. On checkout, the system decrements available copies. When a book is returned, the system 
+            increments availability and checks if the return date is past the due date. Overdue durations trigger an 
+            automated fine entry of $1.00 per day.
+          </li>
+          <li>
+            <strong class="text-slate-800 text-base block mb-1">5.4 Policy Configuration Panel</strong>
+            The Settings page permits Administrators to alter default library settings. Variables like maximum borrow limits, 
+            checkout duration days, and daily fine rates can be edited directly.
+          </li>
+          <li>
+            <strong class="text-slate-800 text-base block mb-1">5.5 Reservation Queues</strong>
+            When available copies of a book drop to zero, students can join a waitlist. The book page displays a 
+            "Reserve Book" button. Upon return of the book by another borrower, the circulation engine looks up pending 
+            reservations and auto-assigns the copy to the next student in line.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 6. Design Artifact Portfolio -->
+      <section class="space-y-8 print-page-break">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">6. Design Artifact Portfolio & Screenshot Logs</h3>
+        <p class="text-slate-600 leading-relaxed">
+          This section aggregates the structural diagrams and UI mockups compiled during the system design phases, 
+          demonstrating the transition from hand-drawn plans to finished React modules.
+        </p>
+        
+        <div class="space-y-8">
+          
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-950 text-base mb-2">Figure 1: Hand-written WBS Planning - Project Bootstrapping</h4>
+            <img src="jira_screenshot_4.jpeg" alt="WBS Part 1" class="rounded-lg border border-slate-200 shadow-sm max-h-[600px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This figure shows the initial structure of the Work Breakdown Structure, planning the project setup (1.1), requirement analysis (1.2), and design phases (1.3).
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-950 text-base mb-2">Figure 2: Hand-written WBS Planning - Authentication & Core Modules</h4>
+            <img src="jira_screenshot_3.jpeg" alt="WBS Part 2" class="rounded-lg border border-slate-200 shadow-sm max-h-[600px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This figure continues the WBS plan, detailing user authentication (1.4), book management (1.5), and member registration (1.6).
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-950 text-base mb-2">Figure 3: Hand-written WBS Planning - Circulation & Testing</h4>
+            <img src="jira_screenshot_2.jpeg" alt="WBS Part 3" class="rounded-lg border border-slate-200 shadow-sm max-h-[600px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This figure shows WBS modules covering the circulation engine (1.7), reports (1.8), and integration testing stages (1.9).
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-950 text-base mb-2">Figure 4: Hand-written WBS Planning - Deployment & Documentation</h4>
+            <img src="jira_screenshot_1.jpeg" alt="WBS Part 4" class="rounded-lg border border-slate-200 shadow-sm max-h-[600px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This figure outlines the final project stages: build preparation and deployment steps (1.10) alongside academic manuals and reports (1.11).
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 5: System Use Case Diagram Model</h4>
+            <img src="use_case_diagram.png" alt="Use Case Diagram" class="rounded-lg border border-slate-200 shadow-sm max-h-[500px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This StarUML model represents the core library actors (Student, Librarian, Admin) and their relative boundary interactions.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 6: Book Checkout (Issue) Workflow Diagram</h4>
+            <img src="checkout_activity_diagram.png" alt="Checkout Activity Diagram" class="rounded-lg border border-slate-200 shadow-sm max-h-[500px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This activity diagram models checkout validations: verification of member eligibility, stock checks, copy allocation, and waitlist routing.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 7: Book Return & Fine Accrual Workflow Diagram</h4>
+            <img src="return_activity_diagram.png" alt="Return Activity Diagram" class="rounded-lg border border-slate-200 shadow-sm max-h-[500px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This diagram details the return flow: recording the check-in date, calculating due date differences, charging fines, and updating stock.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 8: Normalized Relational Entity-Relationship Diagram (ERD)</h4>
+            <img src="er_diagram.png" alt="ERD Diagram" class="rounded-lg border border-slate-200 shadow-sm max-h-[500px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This ERD shows normalized schemas (users, books, transactions, fines, reservations) with PK/FK mappings and constraints.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 9: User Authentication Sign-In Screen</h4>
+            <img src="login_ui_mockup.png" alt="Login UI" class="rounded-lg border border-slate-200 shadow-sm max-h-[400px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This screenshot shows the React login card view with credentials validation and secure routing.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 10: Librarian Administrative Dashboard</h4>
+            <img src="main_dashboard_1785261292483.png" alt="Dashboard UI" class="rounded-lg border border-slate-200 shadow-sm max-h-[400px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This screenshot captures the live dashboard dashboard. Real-time metric cards list total books, active members, out-of-stock items, and fine collections.
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/30">
+            <h4 class="font-bold text-slate-955 text-base mb-2">Figure 11: Book Inventory Catalog List view</h4>
+            <img src="book_catalog_1785261304299.png" alt="Book Catalog UI" class="rounded-lg border border-slate-200 shadow-sm max-h-[400px] w-auto mx-auto mb-3">
+            <p class="text-xs text-slate-600">
+              This screenshot captures the inventory list page, highlighting search filters, add/edit buttons, and availability indicators.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 7. Agile Ceremonies -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-4">7. Agile Ceremonies & Project Management Reporting</h3>
+        <p class="text-slate-600 leading-relaxed">
+          To ensure high engineering excellence, we followed active agile rituals on our board:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 pl-2">
+          <li><strong class="text-slate-800">Daily Standups:</strong> Standup comments are logged directly on active tickets (e.g. "Completed AuthContext login trigger, starting routing guards today. No blockers").</li>
+          <li><strong class="text-slate-800">Sprint Retrospective Meetings:</strong> Retrospective tasks (e.g., Sprint 2 Retrospective meeting) summarize what went well, what could be improved, and action items.</li>
+          <li><strong class="text-slate-800">Reporting Metrics:</strong> The board tracks Sprint Burndown charts, Velocity charts, and Cumulative Flow Diagrams (CFD) to measure performance.</li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+</body>
+</html>

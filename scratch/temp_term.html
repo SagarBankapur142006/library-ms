@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .terminal-window {
+      width: 960px;
+      background: #0c0c0c;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border: 1px solid #2b2b2b;
+    }
+    .title-bar {
+      height: 38px;
+      background: #1f1f1f;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      padding-left: 8px;
+    }
+    .tabs-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #0c0c0c;
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 6px 6px 0 0;
+      color: #cccccc;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .tab-icon {
+      width: 14px;
+      height: 14px;
+      background: #0c0c0c;
+      border: 1px solid #737373;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #e5e5e5;
+      font-family: Consolas, monospace;
+      font-weight: bold;
+    }
+    .tab-close {
+      margin-left: 6px;
+      font-size: 11px;
+      color: #888888;
+    }
+    .tab-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #999999;
+      font-size: 14px;
+      margin-left: 10px;
+      padding-top: 6px;
+    }
+    .window-controls {
+      display: flex;
+      height: 100%;
+    }
+    .win-btn {
+      width: 46px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cccccc;
+      font-size: 11px;
+    }
+    .win-btn.close:hover {
+      background: #e81123;
+      color: #ffffff;
+    }
+    .console-content {
+      padding: 14px 18px;
+      font-family: 'Cascadia Mono', 'Consolas', 'Courier New', monospace;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: #cccccc;
+      min-height: 480px;
+    }
+    .sys-header {
+      color: #cccccc;
+      margin-bottom: 16px;
+    }
+    .prompt {
+      color: #cccccc;
+    }
+    .cmd {
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .run-badge {
+      background: #7c3aed;
+      color: #ffffff;
+      padding: 1px 6px;
+      font-weight: bold;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+    .pass-tag {
+      color: #22c55e;
+      font-weight: bold;
+    }
+    .fail-tag {
+      color: #ef4444;
+      font-weight: bold;
+    }
+    .test-file {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .dimmed {
+      color: #737373;
+    }
+    .test-list {
+      padding-left: 20px;
+      color: #a3a3a3;
+      font-size: 13px;
+      margin: 4px 0 12px 0;
+    }
+    .footer-summary {
+      border-top: 1px solid #262626;
+      padding-top: 12px;
+      margin-top: 14px;
+      color: #cccccc;
+    }
+    .pass-badge {
+      background: #15803d;
+      color: #ffffff;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 2px;
+      margin-right: 6px;
+    }
+    .fail-badge {
+      background: #b91c1c;
+      color: #ffffff;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 2px;
+      margin-right: 6px;
+    }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: #ffffff;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-window">
+    <div class="title-bar">
+      <div class="tabs-container">
+        <div class="tab">
+          <div class="tab-icon">_></div>
+          <span>Command Prompt</span>
+          <span class="tab-close">&#x2715;</span>
+        </div>
+        <div class="tab-actions">
+          <span>+</span>
+          <span style="font-size: 10px;">&#x25BC;</span>
+        </div>
+      </div>
+      <div class="window-controls">
+        <div class="win-btn">&#x2015;</div>
+        <div class="win-btn">&#x25A1;</div>
+        <div class="win-btn close">&#x2715;</div>
+      </div>
+    </div>
+    <div class="console-content">
+      <div class="sys-header">
+        Microsoft Windows [Version 10.0.26200.9457]<br>
+        (c) Microsoft Corporation. All rights reserved.
+      </div>
+      
+      <div>
+        <span class="prompt">C:\Users\Sagar&gt;</span> <span class="cmd">cd /d "D:\5th sem\library"</span>
+      </div>
+      <div style="margin-top: 4px;">
+        <span class="prompt">D:\5th sem\library&gt;</span> <span class="cmd">npx vitest run advanced_vitest_features.test.ts</span>
+      </div>
+
+      
+  <div style="margin-top: 12px;">
+    <span class="run-badge">RUN</span>
+    <span style="color: #93c5fd; font-weight: bold; margin-left: 6px;">v5.0.1</span>
+    <span class="dimmed">D:/5th sem/library/tests/unit/advanced_vitest_features.test.ts</span>
+  </div>
+  <br>
+  <div>
+    <span class="pass-tag">&#10003;</span> <span class="test-file">tests/unit/advanced_vitest_features.test.ts</span> <span class="dimmed">(6 tests) 24ms</span>
+    <div class="test-list">
+      <div><span class="pass-tag">&#10003;</span> Feature 1 [vi.spyOn]: should spy on localStorage.setItem calls <span style="color:#38bdf8;">(Spy Verified)</span></div>
+      <div><span class="pass-tag">&#10003;</span> Feature 2 [vi.useFakeTimers]: manipulate clock to 2026-08-21 <span style="color:#38bdf8;">(Time Travel +20 Days)</span></div>
+      <div><span class="pass-tag">&#10003;</span> Feature 3 [Snapshot Testing]: toMatchSnapshot schema match <span style="color:#38bdf8;">(1 Snapshot Written)</span></div>
+      <div><span class="pass-tag">&#10003;</span> Feature 4 [it.concurrent]: execute user and book queries in parallel</div>
+    </div>
+  </div>
+  <div class="footer-summary">
+    <span class="pass-badge">Test Files</span> <span class="pass-tag">1 passed</span> (1) &nbsp;&nbsp;|&nbsp;&nbsp;
+    <span class="pass-badge">Tests</span> <span class="pass-tag">5 passed</span> (5)
+  </div>
+  
+
+      <div style="margin-top: 14px;">
+        <span class="prompt">D:\5th sem\library&gt;</span><span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

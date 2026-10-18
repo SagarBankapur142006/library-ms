@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira Agile Project Management Report - LMS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .print-card { border: none !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+      .print-page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen pb-12">
+
+  <!-- Header Banner (no-print) -->
+  <header class="bg-indigo-900 text-white py-8 px-6 shadow-lg mb-8 no-print">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight">Jira Agile Project Management Report</h1>
+        <p class="text-indigo-200 mt-1">LMS Project Status Submission</p>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow transition-all flex items-center gap-2">
+          Save PDF / Print
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6">
+    <article class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 md:p-12 space-y-12 print-card">
+      
+      <!-- PAGE 1 (Blank Placeholder for printing) -->
+      <section class="h-[800px] border-2 border-dashed border-slate-200 flex items-center justify-center rounded-xl bg-slate-50/50 print:border-none print:h-0 print:overflow-hidden">
+        <span class="text-slate-400 text-sm font-medium">[Page 1: Left Blank for Cover Page Details]</span>
+      </section>
+
+      <div class="print-page-break"></div>
+
+      <!-- PAGE 2: Project Overview -->
+      <section class="space-y-6 pt-6">
+        <h2 class="text-3xl font-extrabold text-slate-900 border-l-4 border-indigo-600 pl-4">Project Overview</h2>
+        <p class="text-slate-600 leading-relaxed">
+          The Library Management System (LMS) is a single-page web application designed to digitize academic library operations. 
+          The project aims to provide a reliable, premium interface for students, librarians, and administrators to streamline library workflows 
+          such as cataloging books, managing member profiles, tracking checkouts, returns, waitlist queues, settings, and outstanding fines.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          Key functional modules developed within this application include:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600">
+          <li><strong>User Authentication:</strong> Access credentials validation with Role-Based Access Control (RBAC) separating Admin, Librarian, and Student views.</li>
+          <li><strong>Book Cataloging:</strong> Comprehensive CRUD tools permitting catalog updates, live search, genre filters, and available stock control.</li>
+          <li><strong>Member Registry:</strong> Roster of library cardholders and standing indicators (Active vs. Suspended accounts).</li>
+          <li><strong>Issue & Return:</strong> Circulation logic checking borrowing limits, decrementing/incrementing stocks, and processing returns.</li>
+          <li><strong>Fine Engine:</strong> Dynamic daily overdue fee accruals linked to transaction due dates with settlement ledgers.</li>
+          <li><strong>Waitlist Queue:</strong> Book reservation system allowing students to request currently checked-out/out-of-stock items, which automatically update on return.</li>
+          <li><strong>Admin Policy Settings:</strong> Administrative console to adjust borrow durations, maximum limits, and daily fine rates in real time.</li>
+        </ul>
+      </section>
+
+      <div class="print-page-break"></div>
+
+      <!-- PAGE 3: Jira Configuration -->
+      <section class="space-y-6">
+        <h2 class="text-3xl font-extrabold text-slate-900 border-l-4 border-indigo-600 pl-4">Jira Scrum Configuration</h2>
+        <p class="text-slate-600 leading-relaxed">
+          The project's lifecycle, sprints backlog, requirements mapping, database designs, and implementation steps were managed 
+          exclusively using Agile Scrum methodologies on Atlassian Jira.
+        </p>
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1 text-sm text-slate-700">
+          <p><strong>Jira Project Key:</strong> SCRUM</p>
+          <p><strong>Jira Site Workspace:</strong> <a href="https://vitstudent-team-r6bfp56o.atlassian.net" class="text-indigo-600 hover:underline">vitstudent-team-r6bfp56o.atlassian.net</a></p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-slate-900 mt-6">Sprint Breakdown</h3>
+        <p class="text-slate-600 leading-relaxed">
+          The project was executed in exactly one active Scrum sprint covering planning, analysis, design, and code delivery phases 
+          under the unified timeline: June 15, 2026 – August 30, 2026.
+        </p>
+        <div class="p-5 border border-indigo-100 bg-indigo-50/30 rounded-xl space-y-2">
+          <p class="text-indigo-900 font-bold text-lg">SCRUM Sprint 1</p>
+          <p class="text-xs font-semibold text-indigo-600">June 15, 2026 – August 30, 2026</p>
+          <p class="text-slate-600 text-sm">
+            <strong>Sprint Objective:</strong> To configure development environments, design normalized database layouts, draft requirements, 
+            build authentication guards, implement core book cataloging forms, design member listings, develop book circulation transaction mechanisms, 
+            integrate settings rules, and synchronize all source files directly to the Jira board issues.
+          </p>
+        </div>
+      </section>
+
+      <div class="print-page-break"></div>
+
+      <!-- PAGE 4 ONWARDS: EPICS & TASKS DETAILS -->
+      <section class="space-y-12">
+        <h2 class="text-3xl font-extrabold text-slate-900 border-l-4 border-indigo-600 pl-4">Jira Epics & Tasks Breakdown</h2>
+
+        <!-- SCRUM-12 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-12: Project Planning</h3>
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Done (100%)</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Governs the overall repository structure setup, initial scheduling, work packages planning, and project plan tracking.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Project_Planning_and_Structure.docx</strong>: Document outlining structures and environment setups.</p>
+            <p>• <strong>WhatsApp Image 2026-07-27 at 9.49.54 PM.jpeg</strong>: WBS setup handwritten photo.</p>
+            <p>• <strong>WhatsApp Image 2026-07-27 at 9.49.56 PM.jpeg</strong>: WBS requirements handwritten photo.</p>
+            <p>• <strong>WhatsApp Image 2026-07-27 at 9.49.57 PM.jpeg</strong>: WBS features handwritten photo.</p>
+            <p>• <strong>WhatsApp Image 2026-07-27 at 9.50.00 PM.jpeg</strong>: WBS handover handwritten photo.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 1: WBS - Setup</span>
+              <img src="WhatsApp%20Image%202026-07-27%20at%209.49.54%20PM.jpeg" class="max-h-48 mx-auto rounded">
+            </div>
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 2: WBS - Req & Design</span>
+              <img src="WhatsApp%20Image%202026-07-27%20at%209.49.56%20PM.jpeg" class="max-h-48 mx-auto rounded">
+            </div>
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 3: WBS - Core Modules</span>
+              <img src="WhatsApp%20Image%202026-07-27%20at%209.49.57%20PM.jpeg" class="max-h-48 mx-auto rounded">
+            </div>
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 4: WBS - Handover</span>
+              <img src="WhatsApp%20Image%202026-07-27%20at%209.50.00%20PM.jpeg" class="max-h-48 mx-auto rounded">
+            </div>
+          </div>
+        </div>
+
+        <!-- SCRUM-11 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-11: Create Project Structure</h3>
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Done (100%)</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-12) | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Initialize the Git code repository, compile developer packages (React, Vite, TypeScript), and configure compilation standards.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>library_management_system_codebase.zip</strong>: Zip containing initialized folder layout code.</p>
+            <p>• <strong>Project_Planning_and_Structure.docx</strong>: Details directory layouts.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-18 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-18: Requirement Analysis</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Unassigned</p>
+          <p class="text-slate-600 text-sm">Captures system operational flow boundaries, user stories, validation thresholds, and drafts formal specifications documents.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Requirements_Analysis_SRS.docx</strong>: Details functional specifications and use cases.</p>
+            <p>• <strong>use_case_diagram.png</strong>: StarUML boundary use case diagram.</p>
+          </div>
+          <div class="border border-slate-200 rounded p-4 text-center bg-slate-50">
+            <span class="text-xs font-bold block mb-2">Figure 5: StarUML Use Case Diagram</span>
+            <img src="use_case_diagram.png" class="max-h-64 mx-auto rounded">
+          </div>
+        </div>
+
+        <!-- SCRUM-10 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-10: Research Library Requirements</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-18) | Assignee: Aella Harsha Vardhan Reddy 24BCE1254</p>
+          <p class="text-slate-600 text-sm">Compile detailed business logic parameters, cardholder standing criteria, and model use cases diagrams.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>SRS.md</strong>, <strong>WBS.md</strong>, <strong>Requirements_Analysis_SRS.docx</strong>, <strong>use_case_diagram.png</strong>, <strong>Project_Planning_and_Structure.docx</strong>.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-19 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-19: System Design</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Aella Harsha Vardhan Reddy 24BCE1254</p>
+          <p class="text-slate-600 text-sm">Draft relational database schemes, entity representations, relationships cardinality, and structural ERDs.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>System_Design_Database_Schema.docx</strong>: Schema specifications document.</p>
+            <p>• <strong>er_diagram.png</strong>: StarUML ER diagram.</p>
+          </div>
+          <div class="border border-slate-200 rounded p-4 text-center bg-slate-50">
+            <span class="text-xs font-bold block mb-2">Figure 6: StarUML Entity-Relationship Diagram</span>
+            <img src="er_diagram.png" class="max-h-64 mx-auto rounded">
+          </div>
+        </div>
+
+        <!-- SCRUM-6 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-6: Design Database Schema</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-19) | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Establish normalized 3NF relational data tables (users, members, books, transactions, fines, settings, and reservations).</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Database_Design.md</strong>, <strong>System_Design_Database_Schema.docx</strong>, <strong>er_diagram.png</strong>.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-13 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-13: User Authentication</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Enforces security boundaries, login interface views, session storage, and route authorization contexts.</p>
+        </div>
+
+        <!-- SCRUM-7 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-7: Create Login Page UI</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-13) | Assignee: Aella Harsha Vardhan Reddy 24BCE1254</p>
+          <p class="text-slate-600 text-sm">Build the frontend login UI component including input validations and glassmorphism themes styling.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Login.tsx</strong>: React code file for login view.</p>
+            <p>• <strong>login_ui_mockup.png</strong>: UI page screenshot.</p>
+          </div>
+          <div class="border border-slate-200 rounded p-4 text-center bg-slate-50">
+            <span class="text-xs font-bold block mb-2">Figure 7: Glassmorphic Login UI Mockup</span>
+            <img src="login_ui_mockup.png" class="max-h-64 mx-auto rounded">
+          </div>
+        </div>
+
+        <!-- SCRUM-8 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-8: Implement User Authentication</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-13) | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Develop local storage session persistence and Role-Based Access Control (RBAC) hooks.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>AuthContext.tsx</strong>: Context wrapper source code.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-14 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-14: Book Management</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Manages book catalogs, availability indicators, search filters, and inventory modifications.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Books.tsx</strong>: Books component source file.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-9 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-9: Design Book Management Module</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Task (Parent: SCRUM-14) | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Build inventory forms enabling librarians to add, edit, and archive book resources, alongside search filters.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Books.tsx</strong>: React file.</p>
+            <p>• <strong>book_catalog_1785261304299.png</strong>: UI screenshot.</p>
+          </div>
+          <div class="border border-slate-200 rounded p-4 text-center bg-slate-50">
+            <span class="text-xs font-bold block mb-2">Figure 8: Book Catalog View UI Screen</span>
+            <img src="book_catalog_1785261304299.png" class="max-h-64 mx-auto rounded">
+          </div>
+        </div>
+
+        <!-- SCRUM-15 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-15: Member Management</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Sagar Bankapur</p>
+          <p class="text-slate-600 text-sm">Manages cardholder registries, enrollment details, active borrowings limits, and member suspensions.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>MyLoans.tsx</strong>: Student loans view component code.</p>
+          </div>
+        </div>
+
+        <!-- SCRUM-16 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-16: Issue & Return</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Aella Harsha Vardhan Reddy 24BCE1254</p>
+          <p class="text-slate-600 text-sm">Core transaction circulation log handler processing checkouts, check-ins, return dates, and daily fines calculation.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>LibraryContext.tsx</strong>, <strong>storage.ts</strong>, <strong>library_management_system_advanced_features.zip</strong>.</p>
+            <p>• <strong>checkout_activity_diagram.png</strong>: Issue flow activity diagram.</p>
+            <p>• <strong>return_activity_diagram.png</strong>: Return flow activity diagram.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 9: StarUML Book Checkout Workflow</span>
+              <img src="checkout_activity_diagram.png" class="max-h-48 mx-auto rounded">
+            </div>
+            <div class="border border-slate-200 rounded p-2 text-center bg-slate-50">
+              <span class="text-xs font-bold block mb-1">Figure 10: StarUML Book Return Workflow</span>
+              <img src="return_activity_diagram.png" class="max-h-48 mx-auto rounded">
+            </div>
+          </div>
+        </div>
+
+        <!-- SCRUM-17 -->
+        <div class="border-b border-slate-200 pb-8 space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="text-xl font-bold text-slate-900">SCRUM-17: Reports & Dashboard</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">Type: Epic | Assignee: Aella Harsha Vardhan Reddy 24BCE1254</p>
+          <p class="text-slate-600 text-sm">Librarian metrics dash panel, transaction grids, fine ledgers, waitlists queue, and administrative policies configurator.</p>
+          <div class="text-xs text-slate-600 space-y-1">
+            <p class="font-semibold text-slate-800">Attachments:</p>
+            <p>• <strong>Dashboard.tsx</strong>, <strong>Settings.tsx</strong>, <strong>Project_Status_Snapshot.md</strong>, <strong>main_dashboard_1785261292483.png</strong>.</p>
+          </div>
+          <div class="border border-slate-200 rounded p-4 text-center bg-slate-50">
+            <span class="text-xs font-bold block mb-2">Figure 11: Librarian Dashboard UI Screen</span>
+            <img src="main_dashboard_1785261292483.png" class="max-h-64 mx-auto rounded">
+          </div>
+        </div>
+
+      </section>
+
+      <div class="print-page-break"></div>
+
+      <!-- Minor Setup Tasks -->
+      <section class="space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900 mt-6">Setup & System Integration Work Items</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">The following tasks represent standard configurations and setup logs:</p>
+        <div class="space-y-3 text-sm text-slate-600">
+          <p>• <strong>SCRUM-1: Start here: Add your team's work</strong> (In Progress - Unassigned): Default Atlassian initial setup guidelines ticket.</p>
+          <p>• <strong>SCRUM-2: Connect your coding agent to Jira</strong> (In Progress - Unassigned): Configuration ticket linking IDE plugins to the Jira API.</p>
+          <p>• <strong>SCRUM-3: Connect Atlassian Rovo MCP to your local coding tools</strong> (In Progress - Unassigned): Setup ticket configuring Atlassian Rovo protocol hooks.</p>
+          <p>• <strong>SCRUM-4: Delegate this work item to a coding agent</strong> (In Progress - Unassigned): Subtask tracking automation actions.</p>
+          <p>• <strong>SCRUM-5: Implement this work item from your IDE or terminal</strong> (In Progress - Unassigned): Subtask tracking manual code check-ins.</p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+</body>
+</html>

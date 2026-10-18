@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System - Project Documentation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Mermaid JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    /* Hide scrollbars but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      .print-page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 flex min-h-screen">
+
+  <!-- Sidebar Nav (no-print) -->
+  <aside class="w-64 bg-slate-950 border-r border-slate-800 flex flex-col shrink-0 no-print">
+    <div class="p-6 border-b border-slate-800">
+      <h1 class="text-lg font-bold text-indigo-400">LMS Dashboard</h1>
+      <p class="text-xs text-slate-500 mt-1">Project Documentation</p>
+    </div>
+    
+    <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+      <button onclick="showSection('wbs')" id="btn-wbs" class="w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all bg-indigo-600/10 text-indigo-400 border border-indigo-500/20">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
+        1. WBS
+      </button>
+      
+      <button onclick="showSection('srs')" id="btn-srs" class="w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all text-slate-400 hover:bg-slate-800 hover:text-slate-200">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        2. SRS Document
+      </button>
+
+      <button onclick="showSection('erd')" id="btn-erd" class="w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all text-slate-400 hover:bg-slate-800 hover:text-slate-200">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+        3. DB Design & ERD
+      </button>
+
+      <button onclick="showSection('tech')" id="btn-tech" class="w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all text-slate-400 hover:bg-slate-800 hover:text-slate-200">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        4. Tech Stack
+      </button>
+    </nav>
+
+    <div class="p-4 border-t border-slate-800 space-y-2">
+      <button onclick="window.print()" class="w-full flex items-center justify-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold shadow-lg shadow-indigo-600/20 transition-all">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        Print to PDF
+      </button>
+      <div class="text-[10px] text-center text-slate-500">
+        Tip: Print to save as PDF
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Documentation Container -->
+  <main class="flex-1 p-8 md:p-12 overflow-y-auto bg-slate-900 text-slate-200">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- ================= SECTION: WBS ================= -->
+      <section id="sec-wbs" class="space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Planning Phase</span>
+            <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">WBS.md</span>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight mt-2 text-white">Work Breakdown Structure (WBS)</h2>
+          <p class="text-slate-400 mt-2">Hierarchical decomposition of the Library Management System project.</p>
+        </div>
+
+        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-slate-400 mb-4 self-start">Visual Mindmap Diagram</h3>
+          <div class="mermaid w-full flex justify-center bg-white p-4 rounded-xl">
+            mindmap
+              root((Library Management System))
+                1 Project Planning & Setup
+                  1.1 Initialize Repository & Folder Structure
+                  1.2 Establish Dev Environment & CI/CD
+                  1.3 Setup Jira Board & Agile Sprints
+                2 Requirement Analysis
+                  2.1 Draft Software Requirements Specification (SRS)
+                  2.2 Define Use Case Models
+                  2.3 Map Agile User Stories & Story Points
+                3 System Design
+                  3.1 Design Entity Relationship (ER) Diagram
+                  3.2 Define Normalized Database Schema
+                  3.3 Create UI Wireframes & Mockups
+                4 User Authentication
+                  4.1 Secure Admin & Librarian Sign-In
+                  4.2 Student/Member Portal Access
+                  4.3 Implement Form Validations
+                  4.4 Setup JWT & Role-Based Access Control
+                5 Book Management
+                  5.1 Create Book Entry Form (Librarian)
+                  5.2 Edit & Update Book Details
+                  5.3 Remove Books from Inventory
+                  5.4 Implement Elastic Search/Filter by Title, Author, ISBN
+                6 Member Management
+                  6.1 Register New Members
+                  6.2 View & Edit Member Profiles
+                  6.3 Assign Library Cards & Statuses
+                  6.4 Suspend/Deactivate Member Accounts
+                7 Book Issue & Return
+                  7.1 Implement Book Checkout (Issue Flow)
+                  7.2 Implement Book Check-in (Return Flow)
+                  7.3 Due Date Tracking & Reminders
+                  7.4 Dynamic Fine Accrual & Fee Calculation
+                8 Reports & Dashboard
+                  8.1 Active & Historic Loans Summary
+                  8.2 Overdue Penalties Ledger
+                  8.3 Inventory Status & Stock Alerts
+                  8.4 Admin Dashboard Analytics Widgets
+                9 Verification & Testing
+                  9.1 Unit Testing (API & UI Components)
+                  9.2 Integration & End-to-End Testing
+                  9.3 Bug Fixing & User Acceptance Testing (UAT)
+          </div>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="border-b border-slate-800 bg-slate-900 text-slate-300 font-semibold">
+                <th class="p-4">WBS Code</th>
+                <th class="p-4">Element Name</th>
+                <th class="p-4">Deliverables & Objectives</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-slate-400">
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">1.0</td>
+                <td class="p-4 font-semibold text-slate-200">Project Planning & Setup</td>
+                <td class="p-4">Repository creation, workspace folders, Jira backlog config.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">1.1</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Initialize Repository</td>
+                <td class="p-4 text-xs">Git repo init, folder scaffolds, coding standards document.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">1.2</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Establish Dev Environment</td>
+                <td class="p-4 text-xs">Babel/Vite setups, TypeScript configurations, environment keys.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">1.3</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Jira Agile Board Setup</td>
+                <td class="p-4 text-xs">Agile epics creation, user stories injection, Sprint 1 board.</td>
+              </tr>
+              
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">2.0</td>
+                <td class="p-4 font-semibold text-slate-200">Requirement Analysis</td>
+                <td class="p-4">System rules analysis, edge-case cataloging, user story writing.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">2.1</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Draft SRS Document</td>
+                <td class="p-4 text-xs">Document containing scopes, actors, system rules, and models.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">2.2</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Define Use Case Models</td>
+                <td class="p-4 text-xs">Visual actors and interactions schema representing capabilities.</td>
+              </tr>
+              
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">3.0</td>
+                <td class="p-4 font-semibold text-slate-200">System Design</td>
+                <td class="p-4">Relational model design, database tables, and layout wireframes.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">3.1</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Design ER Diagram</td>
+                <td class="p-4 text-xs">Entities modeling, relationship cardinality (1:M, M:N), constraints.</td>
+              </tr>
+              <tr class="bg-slate-900/30">
+                <td class="p-4 font-mono pl-8 text-xs">3.2</td>
+                <td class="p-4 pl-8 text-slate-300 text-xs">Define Database Schema</td>
+                <td class="p-4 text-xs">Translate ERD into specific relational table structures with types.</td>
+              </tr>
+              
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">4.0</td>
+                <td class="p-4 font-semibold text-slate-200">User Authentication</td>
+                <td class="p-4">Sign-in system, sessions, user registration, role authorization.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">5.0</td>
+                <td class="p-4 font-semibold text-slate-200">Book Management</td>
+                <td class="p-4">Inventory CRUD controls, category management, global search.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">6.0</td>
+                <td class="p-4 font-semibold text-slate-200">Member Management</td>
+                <td class="p-4">Member cards, accounts activation/suspension logs.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">7.0</td>
+                <td class="p-4 font-semibold text-slate-200">Book Issue & Return</td>
+                <td class="p-4">Issue/Return flow logs, penalty calculators, loan trackers.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">8.0</td>
+                <td class="p-4 font-semibold text-slate-200">Reports & Dashboard</td>
+                <td class="p-4">Overview counters, overdue lists, charts and ledger downloads.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-mono text-indigo-400 font-semibold">9.0</td>
+                <td class="p-4 font-semibold text-slate-200">Verification & Testing</td>
+                <td class="p-4">Unit testing of return dates, integration of REST actions.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= SECTION: SRS ================= -->
+      <section id="sec-srs" class="space-y-8 hidden">
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Requirement Phase</span>
+            <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">SRS.md</span>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight mt-2 text-white">Software Requirements Specification (SRS)</h2>
+          <p class="text-slate-400 mt-2">Functional specifications, actors, use cases, and agile user stories.</p>
+        </div>
+
+        <!-- Use Case Model -->
+        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-slate-400 mb-4 self-start">System Use Case Diagram</h3>
+          <div class="mermaid w-full bg-white p-4 rounded-xl flex justify-center">
+            graph TD
+              subgraph Actors
+                L[Librarian]
+                S[Student / Member]
+                A[Admin]
+              end
+
+              subgraph Authentication ["Authentication Module"]
+                UC1[Login Securely]
+                UC2[Validate Permissions]
+              end
+
+              subgraph BookMgmt ["Book Management"]
+                UC3[Add Book to Catalog]
+                UC4[Edit Book Details]
+                UC5[Search & Filter Books]
+              end
+
+              subgraph MemberMgmt ["Member Management"]
+                UC6[Register Member]
+                UC7[Deactivate Member]
+              end
+
+              subgraph IssueReturn ["Issue & Return Module"]
+                UC8[Issue Book to Member]
+                UC9[Return Book & Calculate Fines]
+              end
+
+              subgraph Rep ["Reports & Dashboard"]
+                UC10[Generate Overdue Report]
+                UC11[View Admin Dashboard]
+              end
+
+              S --> UC1
+              S --> UC5
+
+              L --> UC1
+              L --> UC3
+              L --> UC4
+              L --> UC5
+              L --> UC6
+              L --> UC8
+              L --> UC9
+              L --> UC10
+
+              A --> UC1
+              A --> UC2
+              A --> UC7
+              A --> UC11
+          </div>
+        </div>
+
+        <!-- Functional Requirements & User Stories -->
+        <div class="space-y-6">
+          <h3 class="text-xl font-bold text-white">3. Functional Requirements (Mapped to Jira Stories)</h3>
+          
+          <!-- Epic 1 -->
+          <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-sm font-bold text-indigo-400">Epic 1: User Authentication</span>
+              <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded border border-indigo-500/20">3 Story Points</span>
+            </div>
+            <div class="space-y-2">
+              <div class="text-xs font-semibold text-slate-500">LMS-AUTH-01: Secure Login</div>
+              <p class="text-sm text-slate-300 italic">"As a registered user (Admin, Librarian, Student), I want to log in with my credentials so that I can access my personalized dashboard and features."</p>
+              <div class="text-xs font-semibold text-slate-400 mt-2">Acceptance Criteria:</div>
+              <ul class="list-disc list-inside text-xs text-slate-400 pl-2 space-y-1">
+                <li>Validates email format and minimum password length (8 characters).</li>
+                <li>Generates a secure session token (JWT) on success.</li>
+                <li>Redirects to appropriate views based on role (Admin -> User Admin, Librarian -> Issue board, Student -> Search).</li>
+                <li>Renders clear error prompts for invalid credentials.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Epic 2 -->
+          <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-sm font-bold text-indigo-400">Epic 2: Book Management (Catalog)</span>
+              <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded border border-indigo-500/20">7 Story Points</span>
+            </div>
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <div class="text-xs font-semibold text-slate-500">LMS-BOOK-01: Catalog CRUD Operations (5 SP)</div>
+                <p class="text-sm text-slate-300 italic">"As a librarian, I want to add, edit, and remove books in the catalog so that book records are accurate."</p>
+                <div class="text-xs font-semibold text-slate-400">Acceptance Criteria:</div>
+                <ul class="list-disc list-inside text-xs text-slate-400 pl-2 space-y-1">
+                  <li>Input fields validation for Title, Author, ISBN, and stock copies count.</li>
+                  <li>Ensures ISBN unique validation constraint to prevent double records.</li>
+                  <li>Soft-deletes entries or blocks removal if books are checked out.</li>
+                </ul>
+              </div>
+              <div class="space-y-1 pt-2 border-t border-slate-900">
+                <div class="text-xs font-semibold text-slate-500">LMS-BOOK-02: Book Search and Filters (2 SP)</div>
+                <p class="text-sm text-slate-300 italic">"As a member or librarian, I want to search books by title, author, or ISBN so that I can easily discover availability status."</p>
+                <div class="text-xs font-semibold text-slate-400">Acceptance Criteria:</div>
+                <ul class="list-disc list-inside text-xs text-slate-400 pl-2 space-y-1">
+                  <li>Features instaneous search response using input debounce filters.</li>
+                  <li>Supports filtering lists to show only instock available titles.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Epic 3 & 4 -->
+          <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-sm font-bold text-indigo-400">Epic 4: Book Issue & Return</span>
+              <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded border border-indigo-500/20">10 Story Points</span>
+            </div>
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <div class="text-xs font-semibold text-slate-500">LMS-TX-01: Issue Book (5 SP)</div>
+                <p class="text-sm text-slate-300 italic">"As a librarian, I want to checkout books to active members so that loans are recorded."</p>
+                <div class="text-xs font-semibold text-slate-400">Acceptance Criteria:</div>
+                <ul class="list-disc list-inside text-xs text-slate-400 pl-2 space-y-1">
+                  <li>Verifies book inventory copies count > 0 before checkout approval.</li>
+                  <li>Checks member status is active and total loans limit is not exceeded (max 5 books).</li>
+                  <li>Computes due date (default 14 days) and records borrow transaction log.</li>
+                </ul>
+              </div>
+              <div class="space-y-1 pt-2 border-t border-slate-900">
+                <div class="text-xs font-semibold text-slate-500">LMS-TX-02: Return Book and Fee Calculation (5 SP)</div>
+                <p class="text-sm text-slate-300 italic">"As a librarian, I want to process returns and dynamically calculate overdue penalties."</p>
+                <div class="text-xs font-semibold text-slate-400">Acceptance Criteria:</div>
+                <ul class="list-disc list-inside text-xs text-slate-400 pl-2 space-y-1">
+                  <li>Updates inventory count and updates transaction state to 'Returned'.</li>
+                  <li>If returned date exceeds due date, dynamically prompts librarian with fine ($1/day).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION: ERD ================= -->
+      <section id="sec-erd" class="space-y-8 hidden">
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Design Phase</span>
+            <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">Database_Design.md</span>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight mt-2 text-white">Database Design & Schema</h2>
+          <p class="text-slate-400 mt-2">Relational data models, table fields, constraints, and relationships.</p>
+        </div>
+
+        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-slate-400 mb-4 self-start">Entity-Relationship Diagram (ERD)</h3>
+          <div class="mermaid w-full bg-white p-4 rounded-xl flex justify-center">
+            erDiagram
+                USERS ||--o| MEMBERS : "has profile"
+                USERS {
+                    int id PK
+                    string email UK
+                    string password_hash
+                    string full_name
+                    string role "Admin | Librarian | Student"
+                    timestamp created_at
+                }
+                MEMBERS ||--o{ TRANSACTIONS : "borrows"
+                MEMBERS {
+                    int id PK
+                    int user_id FK
+                    string card_number UK
+                    string status "Active | Suspended"
+                    int books_checked_out
+                    timestamp joined_date
+                }
+                BOOKS ||--o{ TRANSACTIONS : "included"
+                BOOKS {
+                    int id PK
+                    string title
+                    string author
+                    string isbn UK
+                    string genre
+                    string publisher
+                    int publication_year
+                    int total_copies
+                    int available_copies
+                }
+                TRANSACTIONS ||--o| FINES : "generates"
+                TRANSACTIONS {
+                    int id PK
+                    int book_id FK
+                    int member_id FK
+                    int issued_by_user_id FK
+                    timestamp issue_date
+                    timestamp due_date
+                    timestamp return_date
+                    string status
+                }
+                FINES {
+                    int id PK
+                    int transaction_id FK
+                    decimal fine_amount
+                    string payment_status
+                    timestamp paid_date
+                }
+          </div>
+        </div>
+
+        <!-- Database Tables description -->
+        <div class="space-y-6">
+          <h3 class="text-xl font-bold text-white">Table Schemas</h3>
+          
+          <div class="space-y-4">
+            <h4 class="text-sm font-bold text-indigo-400">1. `users` Table (Authentication & Access)</h4>
+            <div class="overflow-x-auto border border-slate-800 rounded-lg">
+              <table class="w-full text-left text-xs bg-slate-950">
+                <thead>
+                  <tr class="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                    <th class="p-3">Field</th>
+                    <th class="p-3">Type</th>
+                    <th class="p-3">Constraints</th>
+                    <th class="p-3">Description</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800 text-slate-400">
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">id</td>
+                    <td class="p-3 font-mono">INT / SERIAL</td>
+                    <td class="p-3">PRIMARY KEY</td>
+                    <td class="p-3">Unique user profile reference.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">email</td>
+                    <td class="p-3 font-mono">VARCHAR(150)</td>
+                    <td class="p-3">UNIQUE, NOT NULL</td>
+                    <td class="p-3">User credentials login email.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">role</td>
+                    <td class="p-3 font-mono">VARCHAR(20)</td>
+                    <td class="p-3">NOT NULL</td>
+                    <td class="p-3">'Admin' | 'Librarian' | 'Student'</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="text-sm font-bold text-indigo-400">2. `transactions` Table (Checkout logs)</h4>
+            <div class="overflow-x-auto border border-slate-800 rounded-lg">
+              <table class="w-full text-left text-xs bg-slate-950">
+                <thead>
+                  <tr class="bg-slate-900 text-slate-300 font-semibold border-b border-slate-800">
+                    <th class="p-3">Field</th>
+                    <th class="p-3">Type</th>
+                    <th class="p-3">Constraints</th>
+                    <th class="p-3">Description</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800 text-slate-400">
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">id</td>
+                    <td class="p-3 font-mono">INT</td>
+                    <td class="p-3">PRIMARY KEY</td>
+                    <td class="p-3">Borrow log transaction ID.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">book_id</td>
+                    <td class="p-3 font-mono">INT</td>
+                    <td class="p-3">FOREIGN KEY -> books(id)</td>
+                    <td class="p-3">Checked out book title reference.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">member_id</td>
+                    <td class="p-3 font-mono">INT</td>
+                    <td class="p-3">FOREIGN KEY -> members(id)</td>
+                    <td class="p-3">Borrowing member card reference.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-mono text-slate-200">due_date</td>
+                    <td class="p-3 font-mono">TIMESTAMP</td>
+                    <td class="p-3">NOT NULL</td>
+                    <td class="p-3">Calculated target return date.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION: TECH ================= -->
+      <section id="sec-tech" class="space-y-8 hidden">
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Stack Overview</span>
+            <span class="px-2.5 py-0.5 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">Tech_Stack.md</span>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight mt-2 text-white">Technology Stack & Directories</h2>
+          <p class="text-slate-400 mt-2">Tools, folder layouts, and implementation layers.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
+            <h3 class="font-bold text-slate-200">Core Technologies</h3>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li><strong class="text-slate-300">Vite + React (TS):</strong> Scaffolder and fast-refresh bundler engine.</li>
+              <li><strong class="text-slate-300">Custom Vanilla CSS:</strong> Custom glassmorphic styles and utility themes.</li>
+              <li><strong class="text-slate-300">HTML5 LocalStorage:</strong> Used to model and store relational records for full browser interactivity.</li>
+            </ul>
+          </div>
+          
+          <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
+            <h3 class="font-bold text-slate-200">Mock Data Persistence Layer</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              To bypass complex API setup during early demonstrations, a storage manager seeds the browser's database automatically on launch with dummy books, librarians, and borrow history.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      document.getElementById('sec-wbs').classList.add('hidden');
+      document.getElementById('sec-srs').classList.add('hidden');
+      document.getElementById('sec-erd').classList.add('hidden');
+      document.getElementById('sec-tech').classList.add('hidden');
+      
+      // Un-highlight buttons
+      const btnClasses = ["text-slate-400", "hover:bg-slate-800", "hover:text-slate-200"];
+      const activeClasses = ["bg-indigo-600/10", "text-indigo-400", "border", "border-indigo-500/20"];
+      
+      const buttons = ['btn-wbs', 'btn-srs', 'btn-erd', 'btn-tech'];
+      buttons.forEach(id => {
+        const btn = document.getElementById(id);
+        activeClasses.forEach(c => btn.classList.remove(c));
+        btnClasses.forEach(c => btn.classList.add(c));
+      });
+
+      // Show requested section
+      document.getElementById('sec-' + sectionId).classList.remove('hidden');
+      
+      // Highlight active button
+      const activeBtn = document.getElementById('btn-' + sectionId);
+      btnClasses.forEach(c => activeBtn.classList.remove(c));
+      activeClasses.forEach(c => activeBtn.classList.add(c));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vitest UI Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .sidebar {
+      width: 320px;
+      background: #1e1e1e;
+      border-right: 1px solid #2d2d2d;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      padding: 1rem;
+      border-bottom: 1px solid #2d2d2d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: bold; color: #facc15; font-size: 1.1rem; }
+    .stat-badge { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    
+    .file-tree { flex: 1; overflow-y: auto; padding: 0.5rem 0; }
+    .file-item { padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; cursor: pointer; }
+    .file-item:hover { background: #2a2a2a; }
+    .file-item.active { background: #2d3748; border-left: 3px solid #ef4444; }
+    .pass-icon { color: #22c55e; margin-right: 0.5rem; }
+    .fail-icon { color: #ef4444; margin-right: 0.5rem; }
+    
+    .main-content { flex: 1; display: flex; flexDirection: column; background: #121212; }
+    .test-header { padding: 1rem; background: #181818; border-bottom: 1px solid #2d2d2d; display: flex; justify-content: space-between; align-items: center; }
+    .test-list { flex: 1; padding: 1.5rem; overflow-y: auto; }
+    
+    .test-row { padding: 0.75rem; border-radius: 6px; margin-bottom: 0.5rem; background: #1e1e1e; border: 1px solid #2d2d2d; font-size: 0.9rem; }
+    .test-row.failed { border-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+    .test-row-title { display: flex; align-items: center; justify-content: space-between; font-weight: 500; }
+    .error-box { background: #0c0c0c; border: 1px solid #ef4444; border-radius: 6px; padding: 1rem; margin-top: 0.75rem; font-family: Consolas, monospace; font-size: 0.82rem; color: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="header">
+      <div class="brand">⚡ Vitest UI</div>
+      <span class="stat-badge">26/27 Passed</span>
+    </div>
+    <div class="file-tree">
+      <div class="file-item">
+        <span><span class="pass-icon">✓</span> auth_security.test.ts</span>
+        <span style="color: #888; font-size: 0.75rem;">7/7</span>
+      </div>
+      <div class="file-item">
+        <span><span class="pass-icon">✓</span> books_inventory.test.ts</span>
+        <span style="color: #888; font-size: 0.75rem;">5/5</span>
+      </div>
+      <div class="file-item">
+        <span><span class="pass-icon">✓</span> circulation_transactions.test.ts</span>
+        <span style="color: #888; font-size: 0.75rem;">5/5</span>
+      </div>
+      <div class="file-item">
+        <span><span class="pass-icon">✓</span> fines_settings_reservations.test.ts</span>
+        <span style="color: #888; font-size: 0.75rem;">4/4</span>
+      </div>
+      <div class="file-item active">
+        <span><span class="fail-icon">✕</span> advanced_vitest_features.test.ts</span>
+        <span style="color: #ef4444; font-size: 0.75rem; font-weight: bold;">5/6</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="test-header">
+      <div>
+        <h3 style="font-size: 1.1rem; color: #fff;">tests/unit/advanced_vitest_features.test.ts</h3>
+        <span style="font-size: 0.8rem; color: #888;">6 tests executed in 28ms</span>
+      </div>
+      <span style="background: #22c55e; color: #000; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">PORT 51204</span>
+    </div>
+
+    <div class="test-list">
+      <div class="test-row">
+        <div class="test-row-title">
+          <span><span class="pass-icon">✓</span> Feature 1 [vi.spyOn]: should spy on localStorage.setItem calls</span>
+          <span style="color: #888; font-size: 0.8rem;">4ms</span>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-row-title">
+          <span><span class="pass-icon">✓</span> Feature 2 [vi.useFakeTimers]: manipulate clock to 2026-08-21 (+20 Days)</span>
+          <span style="color: #888; font-size: 0.8rem;">6ms</span>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-row-title">
+          <span><span class="pass-icon">✓</span> Feature 3 [Snapshot Testing]: match settings snapshot schema</span>
+          <span style="color: #888; font-size: 0.8rem;">3ms</span>
+        </div>
+      </div>
+      <div class="test-row failed">
+        <div class="test-row-title">
+          <span><span class="fail-icon">✕</span> Feature 5 [Boundary Verification]: strict 13-digit ISBN checksum rule [Intentional Assertion Test]</span>
+          <span style="color: #ef4444; font-size: 0.8rem; font-weight: bold;">FAILED</span>
+        </div>
+        <div class="error-box">
+          <div style="font-weight: bold; margin-bottom: 0.4rem;">AssertionError: expected 'INVALID_ISBN_FORMAT' to be 'VALID_ISBN_13'</div>
+          <div>- Expected: "VALID_ISBN_13"</div>
+          <div>+ Received: "INVALID_ISBN_FORMAT"</div>
+          <div style="color: #71717a; margin-top: 0.5rem;">> 68 | expect(validateIsbn('978-0-123456-78-9')).toBe('VALID_ISBN_13');</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

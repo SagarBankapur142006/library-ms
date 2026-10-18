@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Advanced Vitest Features Exploration (Sagar S Bankapur - 24BCE1294) > Feature 3 [Snapshot Testing]: should match default system settings structure snapshot 1`] = `
+{
+  "dailyFineAmount": 1,
+  "loanDurationDays": 14,
+  "maxBooksAllowed": 5,
+  "suspensionFineLimit": 10,
+}
+`;

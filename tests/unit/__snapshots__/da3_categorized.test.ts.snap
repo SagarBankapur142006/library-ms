@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DA-3: Categorized Test Suite (Sagar S Bankapur - 24BCE1294) > Category 3: Integration Points > TC-DA3-INT-05: [Schema Contract Snapshot Integration] should protect settings entity structure against breaking schema drift 1`] = `
+{
+  "dailyFineAmount": 1,
+  "loanDurationDays": 14,
+  "maxBooksAllowed": 5,
+  "suspensionFineLimit": 10,
+}
+`;
